@@ -233,12 +233,12 @@ export function generatePlans(project: Project): Plan[] {
     return {
       id: `${project.id}-${label}`,
       label,
-      title: titles[i],
+      title: titles[i]!,
       score: Math.round((efficiency + daylight + circulation) / 3),
       efficiency,
       daylight,
       circulation,
-      tags: tagSets[i],
+      tags: tagSets[i]!,
       rooms,
     };
   });
