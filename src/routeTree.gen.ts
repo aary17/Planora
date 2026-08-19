@@ -16,6 +16,7 @@ import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as RegisterRouteImport } from './routes/register'
 import { Route as DesignNewRouteImport } from './routes/design/new'
 import { Route as DesignIdCompareRouteImport } from './routes/design/$id/compare'
+import { Route as DesignIdEditRouteImport } from './routes/design/$id/edit'
 import { Route as DesignIdGeneratingRouteImport } from './routes/design/$id/generating'
 import { Route as DesignIdPlansRouteImport } from './routes/design/$id/plans'
 import { Route as DesignIdPreferencesRouteImport } from './routes/design/$id/preferences'
@@ -56,6 +57,11 @@ const DesignIdCompareRoute = DesignIdCompareRouteImport.update({
   path: '/design/$id/compare',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DesignIdEditRoute = DesignIdEditRouteImport.update({
+  id: '/design/$id/edit',
+  path: '/design/$id/edit',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DesignIdGeneratingRoute = DesignIdGeneratingRouteImport.update({
   id: '/design/$id/generating',
   path: '/design/$id/generating',
@@ -85,6 +91,7 @@ export interface FileRoutesByFullPath {
   '/register': typeof RegisterRoute
   '/design/new': typeof DesignNewRoute
   '/design/$id/compare': typeof DesignIdCompareRoute
+  '/design/$id/edit': typeof DesignIdEditRoute
   '/design/$id/generating': typeof DesignIdGeneratingRoute
   '/design/$id/plans': typeof DesignIdPlansRoute
   '/design/$id/preferences': typeof DesignIdPreferencesRoute
@@ -98,6 +105,7 @@ export interface FileRoutesByTo {
   '/register': typeof RegisterRoute
   '/design/new': typeof DesignNewRoute
   '/design/$id/compare': typeof DesignIdCompareRoute
+  '/design/$id/edit': typeof DesignIdEditRoute
   '/design/$id/generating': typeof DesignIdGeneratingRoute
   '/design/$id/plans': typeof DesignIdPlansRoute
   '/design/$id/preferences': typeof DesignIdPreferencesRoute
@@ -112,6 +120,7 @@ export interface FileRoutesById {
   '/register': typeof RegisterRoute
   '/design/new': typeof DesignNewRoute
   '/design/$id/compare': typeof DesignIdCompareRoute
+  '/design/$id/edit': typeof DesignIdEditRoute
   '/design/$id/generating': typeof DesignIdGeneratingRoute
   '/design/$id/plans': typeof DesignIdPlansRoute
   '/design/$id/preferences': typeof DesignIdPreferencesRoute
@@ -127,6 +136,7 @@ export interface FileRouteTypes {
     | '/register'
     | '/design/new'
     | '/design/$id/compare'
+    | '/design/$id/edit'
     | '/design/$id/generating'
     | '/design/$id/plans'
     | '/design/$id/preferences'
@@ -140,6 +150,7 @@ export interface FileRouteTypes {
     | '/register'
     | '/design/new'
     | '/design/$id/compare'
+    | '/design/$id/edit'
     | '/design/$id/generating'
     | '/design/$id/plans'
     | '/design/$id/preferences'
@@ -153,6 +164,7 @@ export interface FileRouteTypes {
     | '/register'
     | '/design/new'
     | '/design/$id/compare'
+    | '/design/$id/edit'
     | '/design/$id/generating'
     | '/design/$id/plans'
     | '/design/$id/preferences'
@@ -167,6 +179,7 @@ export interface RootRouteChildren {
   RegisterRoute: typeof RegisterRoute
   DesignNewRoute: typeof DesignNewRoute
   DesignIdCompareRoute: typeof DesignIdCompareRoute
+  DesignIdEditRoute: typeof DesignIdEditRoute
   DesignIdGeneratingRoute: typeof DesignIdGeneratingRoute
   DesignIdPlansRoute: typeof DesignIdPlansRoute
   DesignIdPreferencesRoute: typeof DesignIdPreferencesRoute
@@ -224,6 +237,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DesignIdCompareRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/design/$id/edit': {
+      id: '/design/$id/edit'
+      path: '/design/$id/edit'
+      fullPath: '/design/$id/edit'
+      preLoaderRoute: typeof DesignIdEditRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/design/$id/generating': {
       id: '/design/$id/generating'
       path: '/design/$id/generating'
@@ -263,6 +283,7 @@ const rootRouteChildren: RootRouteChildren = {
   RegisterRoute: RegisterRoute,
   DesignNewRoute: DesignNewRoute,
   DesignIdCompareRoute: DesignIdCompareRoute,
+  DesignIdEditRoute: DesignIdEditRoute,
   DesignIdGeneratingRoute: DesignIdGeneratingRoute,
   DesignIdPlansRoute: DesignIdPlansRoute,
   DesignIdPreferencesRoute: DesignIdPreferencesRoute,
