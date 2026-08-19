@@ -25,9 +25,9 @@ export function AppShell({
   actions,
 }: {
   children: ReactNode;
-  title?: string;
-  subtitle?: string;
-  actions?: ReactNode;
+  title?: string | undefined;
+  subtitle?: string | undefined;
+  actions?: ReactNode | undefined;
 }) {
   const [open, setOpen] = useState(false);
   const path = useRouterState({ select: (s) => s.location.pathname });

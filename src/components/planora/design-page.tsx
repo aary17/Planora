@@ -21,8 +21,8 @@ export function DesignPage({
   id: string;
   step: string;
   title: string;
-  subtitle?: string;
-  actions?: ReactNode;
+  subtitle?: string | undefined;
+  actions?: ReactNode | undefined;
   children: (ctx: Ctx) => ReactNode;
 }) {
   const { project, update } = useProject(id);
@@ -55,8 +55,8 @@ export function FooterNav({
   backTo,
   children,
 }: {
-  backTo?: ReactNode;
-  children?: ReactNode;
+  backTo?: ReactNode | undefined;
+  children?: ReactNode | undefined;
 }) {
   return (
     <div className="mt-8 flex flex-wrap items-center justify-between gap-3">
