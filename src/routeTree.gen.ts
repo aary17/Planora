@@ -17,6 +17,7 @@ import { Route as RegisterRouteImport } from './routes/register'
 import { Route as DesignNewRouteImport } from './routes/design/new'
 import { Route as DesignIdCompareRouteImport } from './routes/design/$id/compare'
 import { Route as DesignIdEditRouteImport } from './routes/design/$id/edit'
+import { Route as DesignIdFinalRouteImport } from './routes/design/$id/final'
 import { Route as DesignIdGeneratingRouteImport } from './routes/design/$id/generating'
 import { Route as DesignIdPlansRouteImport } from './routes/design/$id/plans'
 import { Route as DesignIdPreferencesRouteImport } from './routes/design/$id/preferences'
@@ -63,6 +64,11 @@ const DesignIdEditRoute = DesignIdEditRouteImport.update({
   path: '/design/$id/edit',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DesignIdFinalRoute = DesignIdFinalRouteImport.update({
+  id: '/design/$id/final',
+  path: '/design/$id/final',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DesignIdGeneratingRoute = DesignIdGeneratingRouteImport.update({
   id: '/design/$id/generating',
   path: '/design/$id/generating',
@@ -98,6 +104,7 @@ export interface FileRoutesByFullPath {
   '/design/new': typeof DesignNewRoute
   '/design/$id/compare': typeof DesignIdCompareRoute
   '/design/$id/edit': typeof DesignIdEditRoute
+  '/design/$id/final': typeof DesignIdFinalRoute
   '/design/$id/generating': typeof DesignIdGeneratingRoute
   '/design/$id/plans': typeof DesignIdPlansRoute
   '/design/$id/preferences': typeof DesignIdPreferencesRoute
@@ -113,6 +120,7 @@ export interface FileRoutesByTo {
   '/design/new': typeof DesignNewRoute
   '/design/$id/compare': typeof DesignIdCompareRoute
   '/design/$id/edit': typeof DesignIdEditRoute
+  '/design/$id/final': typeof DesignIdFinalRoute
   '/design/$id/generating': typeof DesignIdGeneratingRoute
   '/design/$id/plans': typeof DesignIdPlansRoute
   '/design/$id/preferences': typeof DesignIdPreferencesRoute
@@ -129,6 +137,7 @@ export interface FileRoutesById {
   '/design/new': typeof DesignNewRoute
   '/design/$id/compare': typeof DesignIdCompareRoute
   '/design/$id/edit': typeof DesignIdEditRoute
+  '/design/$id/final': typeof DesignIdFinalRoute
   '/design/$id/generating': typeof DesignIdGeneratingRoute
   '/design/$id/plans': typeof DesignIdPlansRoute
   '/design/$id/preferences': typeof DesignIdPreferencesRoute
@@ -146,6 +155,7 @@ export interface FileRouteTypes {
     | '/design/new'
     | '/design/$id/compare'
     | '/design/$id/edit'
+    | '/design/$id/final'
     | '/design/$id/generating'
     | '/design/$id/plans'
     | '/design/$id/preferences'
@@ -161,6 +171,7 @@ export interface FileRouteTypes {
     | '/design/new'
     | '/design/$id/compare'
     | '/design/$id/edit'
+    | '/design/$id/final'
     | '/design/$id/generating'
     | '/design/$id/plans'
     | '/design/$id/preferences'
@@ -176,6 +187,7 @@ export interface FileRouteTypes {
     | '/design/new'
     | '/design/$id/compare'
     | '/design/$id/edit'
+    | '/design/$id/final'
     | '/design/$id/generating'
     | '/design/$id/plans'
     | '/design/$id/preferences'
@@ -192,6 +204,7 @@ export interface RootRouteChildren {
   DesignNewRoute: typeof DesignNewRoute
   DesignIdCompareRoute: typeof DesignIdCompareRoute
   DesignIdEditRoute: typeof DesignIdEditRoute
+  DesignIdFinalRoute: typeof DesignIdFinalRoute
   DesignIdGeneratingRoute: typeof DesignIdGeneratingRoute
   DesignIdPlansRoute: typeof DesignIdPlansRoute
   DesignIdPreferencesRoute: typeof DesignIdPreferencesRoute
@@ -257,6 +270,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DesignIdEditRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/design/$id/final': {
+      id: '/design/$id/final'
+      path: '/design/$id/final'
+      fullPath: '/design/$id/final'
+      preLoaderRoute: typeof DesignIdFinalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/design/$id/generating': {
       id: '/design/$id/generating'
       path: '/design/$id/generating'
@@ -304,6 +324,7 @@ const rootRouteChildren: RootRouteChildren = {
   DesignNewRoute: DesignNewRoute,
   DesignIdCompareRoute: DesignIdCompareRoute,
   DesignIdEditRoute: DesignIdEditRoute,
+  DesignIdFinalRoute: DesignIdFinalRoute,
   DesignIdGeneratingRoute: DesignIdGeneratingRoute,
   DesignIdPlansRoute: DesignIdPlansRoute,
   DesignIdPreferencesRoute: DesignIdPreferencesRoute,
