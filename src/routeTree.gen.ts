@@ -15,6 +15,7 @@ import { Route as LoginRouteImport } from './routes/login'
 import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as RegisterRouteImport } from './routes/register'
 import { Route as DesignNewRouteImport } from './routes/design/new'
+import { Route as DesignIdGeneratingRouteImport } from './routes/design/$id/generating'
 import { Route as DesignIdPreferencesRouteImport } from './routes/design/$id/preferences'
 import { Route as DesignIdRoomsRouteImport } from './routes/design/$id/rooms'
 
@@ -48,6 +49,11 @@ const DesignNewRoute = DesignNewRouteImport.update({
   path: '/design/new',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DesignIdGeneratingRoute = DesignIdGeneratingRouteImport.update({
+  id: '/design/$id/generating',
+  path: '/design/$id/generating',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DesignIdPreferencesRoute = DesignIdPreferencesRouteImport.update({
   id: '/design/$id/preferences',
   path: '/design/$id/preferences',
@@ -66,6 +72,7 @@ export interface FileRoutesByFullPath {
   '/projects': typeof ProjectsRoute
   '/register': typeof RegisterRoute
   '/design/new': typeof DesignNewRoute
+  '/design/$id/generating': typeof DesignIdGeneratingRoute
   '/design/$id/preferences': typeof DesignIdPreferencesRoute
   '/design/$id/rooms': typeof DesignIdRoomsRoute
 }
@@ -76,6 +83,7 @@ export interface FileRoutesByTo {
   '/projects': typeof ProjectsRoute
   '/register': typeof RegisterRoute
   '/design/new': typeof DesignNewRoute
+  '/design/$id/generating': typeof DesignIdGeneratingRoute
   '/design/$id/preferences': typeof DesignIdPreferencesRoute
   '/design/$id/rooms': typeof DesignIdRoomsRoute
 }
@@ -87,6 +95,7 @@ export interface FileRoutesById {
   '/projects': typeof ProjectsRoute
   '/register': typeof RegisterRoute
   '/design/new': typeof DesignNewRoute
+  '/design/$id/generating': typeof DesignIdGeneratingRoute
   '/design/$id/preferences': typeof DesignIdPreferencesRoute
   '/design/$id/rooms': typeof DesignIdRoomsRoute
 }
@@ -99,6 +108,7 @@ export interface FileRouteTypes {
     | '/projects'
     | '/register'
     | '/design/new'
+    | '/design/$id/generating'
     | '/design/$id/preferences'
     | '/design/$id/rooms'
   fileRoutesByTo: FileRoutesByTo
@@ -109,6 +119,7 @@ export interface FileRouteTypes {
     | '/projects'
     | '/register'
     | '/design/new'
+    | '/design/$id/generating'
     | '/design/$id/preferences'
     | '/design/$id/rooms'
   id:
@@ -119,6 +130,7 @@ export interface FileRouteTypes {
     | '/projects'
     | '/register'
     | '/design/new'
+    | '/design/$id/generating'
     | '/design/$id/preferences'
     | '/design/$id/rooms'
   fileRoutesById: FileRoutesById
@@ -130,6 +142,7 @@ export interface RootRouteChildren {
   ProjectsRoute: typeof ProjectsRoute
   RegisterRoute: typeof RegisterRoute
   DesignNewRoute: typeof DesignNewRoute
+  DesignIdGeneratingRoute: typeof DesignIdGeneratingRoute
   DesignIdPreferencesRoute: typeof DesignIdPreferencesRoute
   DesignIdRoomsRoute: typeof DesignIdRoomsRoute
 }
@@ -178,6 +191,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DesignNewRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/design/$id/generating': {
+      id: '/design/$id/generating'
+      path: '/design/$id/generating'
+      fullPath: '/design/$id/generating'
+      preLoaderRoute: typeof DesignIdGeneratingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/design/$id/preferences': {
       id: '/design/$id/preferences'
       path: '/design/$id/preferences'
@@ -202,6 +222,7 @@ const rootRouteChildren: RootRouteChildren = {
   ProjectsRoute: ProjectsRoute,
   RegisterRoute: RegisterRoute,
   DesignNewRoute: DesignNewRoute,
+  DesignIdGeneratingRoute: DesignIdGeneratingRoute,
   DesignIdPreferencesRoute: DesignIdPreferencesRoute,
   DesignIdRoomsRoute: DesignIdRoomsRoute,
 }
