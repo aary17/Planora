@@ -21,6 +21,7 @@ import { Route as DesignIdGeneratingRouteImport } from './routes/design/$id/gene
 import { Route as DesignIdPlansRouteImport } from './routes/design/$id/plans'
 import { Route as DesignIdPreferencesRouteImport } from './routes/design/$id/preferences'
 import { Route as DesignIdRoomsRouteImport } from './routes/design/$id/rooms'
+import { Route as DesignIdValidationRouteImport } from './routes/design/$id/validation'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -82,6 +83,11 @@ const DesignIdRoomsRoute = DesignIdRoomsRouteImport.update({
   path: '/design/$id/rooms',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DesignIdValidationRoute = DesignIdValidationRouteImport.update({
+  id: '/design/$id/validation',
+  path: '/design/$id/validation',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -96,6 +102,7 @@ export interface FileRoutesByFullPath {
   '/design/$id/plans': typeof DesignIdPlansRoute
   '/design/$id/preferences': typeof DesignIdPreferencesRoute
   '/design/$id/rooms': typeof DesignIdRoomsRoute
+  '/design/$id/validation': typeof DesignIdValidationRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -110,6 +117,7 @@ export interface FileRoutesByTo {
   '/design/$id/plans': typeof DesignIdPlansRoute
   '/design/$id/preferences': typeof DesignIdPreferencesRoute
   '/design/$id/rooms': typeof DesignIdRoomsRoute
+  '/design/$id/validation': typeof DesignIdValidationRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -125,6 +133,7 @@ export interface FileRoutesById {
   '/design/$id/plans': typeof DesignIdPlansRoute
   '/design/$id/preferences': typeof DesignIdPreferencesRoute
   '/design/$id/rooms': typeof DesignIdRoomsRoute
+  '/design/$id/validation': typeof DesignIdValidationRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -141,6 +150,7 @@ export interface FileRouteTypes {
     | '/design/$id/plans'
     | '/design/$id/preferences'
     | '/design/$id/rooms'
+    | '/design/$id/validation'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -155,6 +165,7 @@ export interface FileRouteTypes {
     | '/design/$id/plans'
     | '/design/$id/preferences'
     | '/design/$id/rooms'
+    | '/design/$id/validation'
   id:
     | '__root__'
     | '/'
@@ -169,6 +180,7 @@ export interface FileRouteTypes {
     | '/design/$id/plans'
     | '/design/$id/preferences'
     | '/design/$id/rooms'
+    | '/design/$id/validation'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -184,6 +196,7 @@ export interface RootRouteChildren {
   DesignIdPlansRoute: typeof DesignIdPlansRoute
   DesignIdPreferencesRoute: typeof DesignIdPreferencesRoute
   DesignIdRoomsRoute: typeof DesignIdRoomsRoute
+  DesignIdValidationRoute: typeof DesignIdValidationRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -272,6 +285,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DesignIdRoomsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/design/$id/validation': {
+      id: '/design/$id/validation'
+      path: '/design/$id/validation'
+      fullPath: '/design/$id/validation'
+      preLoaderRoute: typeof DesignIdValidationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -288,6 +308,7 @@ const rootRouteChildren: RootRouteChildren = {
   DesignIdPlansRoute: DesignIdPlansRoute,
   DesignIdPreferencesRoute: DesignIdPreferencesRoute,
   DesignIdRoomsRoute: DesignIdRoomsRoute,
+  DesignIdValidationRoute: DesignIdValidationRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
