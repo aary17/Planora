@@ -10,33 +10,219 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as ProjectsRouteImport } from './routes/projects'
+import { Route as RegisterRouteImport } from './routes/register'
+import { Route as DesignNewRouteImport } from './routes/design/new'
+import { Route as DesignIdCompareRouteImport } from './routes/design/$id/compare'
+import { Route as DesignIdEditRouteImport } from './routes/design/$id/edit'
+import { Route as DesignIdFinalRouteImport } from './routes/design/$id/final'
+import { Route as DesignIdGeneratingRouteImport } from './routes/design/$id/generating'
+import { Route as DesignIdPlansRouteImport } from './routes/design/$id/plans'
+import { Route as DesignIdPreferencesRouteImport } from './routes/design/$id/preferences'
+import { Route as DesignIdRoomsRouteImport } from './routes/design/$id/rooms'
+import { Route as DesignIdValidationRouteImport } from './routes/design/$id/validation'
+import { Route as DesignId3dGeneratingRouteImport } from './routes/design/$id/3d/generating'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsRoute = ProjectsRouteImport.update({
+  id: '/projects',
+  path: '/projects',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegisterRoute = RegisterRouteImport.update({
+  id: '/register',
+  path: '/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DesignNewRoute = DesignNewRouteImport.update({
+  id: '/design/new',
+  path: '/design/new',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DesignIdCompareRoute = DesignIdCompareRouteImport.update({
+  id: '/design/$id/compare',
+  path: '/design/$id/compare',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DesignIdEditRoute = DesignIdEditRouteImport.update({
+  id: '/design/$id/edit',
+  path: '/design/$id/edit',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DesignIdFinalRoute = DesignIdFinalRouteImport.update({
+  id: '/design/$id/final',
+  path: '/design/$id/final',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DesignIdGeneratingRoute = DesignIdGeneratingRouteImport.update({
+  id: '/design/$id/generating',
+  path: '/design/$id/generating',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DesignIdPlansRoute = DesignIdPlansRouteImport.update({
+  id: '/design/$id/plans',
+  path: '/design/$id/plans',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DesignIdPreferencesRoute = DesignIdPreferencesRouteImport.update({
+  id: '/design/$id/preferences',
+  path: '/design/$id/preferences',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DesignIdRoomsRoute = DesignIdRoomsRouteImport.update({
+  id: '/design/$id/rooms',
+  path: '/design/$id/rooms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DesignIdValidationRoute = DesignIdValidationRouteImport.update({
+  id: '/design/$id/validation',
+  path: '/design/$id/validation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DesignId3dGeneratingRoute = DesignId3dGeneratingRouteImport.update({
+  id: '/design/$id/3d/generating',
+  path: '/design/$id/3d/generating',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/dashboard': typeof DashboardRoute
+  '/login': typeof LoginRoute
+  '/projects': typeof ProjectsRoute
+  '/register': typeof RegisterRoute
+  '/design/new': typeof DesignNewRoute
+  '/design/$id/compare': typeof DesignIdCompareRoute
+  '/design/$id/edit': typeof DesignIdEditRoute
+  '/design/$id/final': typeof DesignIdFinalRoute
+  '/design/$id/generating': typeof DesignIdGeneratingRoute
+  '/design/$id/plans': typeof DesignIdPlansRoute
+  '/design/$id/preferences': typeof DesignIdPreferencesRoute
+  '/design/$id/rooms': typeof DesignIdRoomsRoute
+  '/design/$id/validation': typeof DesignIdValidationRoute
+  '/design/$id/3d/generating': typeof DesignId3dGeneratingRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/dashboard': typeof DashboardRoute
+  '/login': typeof LoginRoute
+  '/projects': typeof ProjectsRoute
+  '/register': typeof RegisterRoute
+  '/design/new': typeof DesignNewRoute
+  '/design/$id/compare': typeof DesignIdCompareRoute
+  '/design/$id/edit': typeof DesignIdEditRoute
+  '/design/$id/final': typeof DesignIdFinalRoute
+  '/design/$id/generating': typeof DesignIdGeneratingRoute
+  '/design/$id/plans': typeof DesignIdPlansRoute
+  '/design/$id/preferences': typeof DesignIdPreferencesRoute
+  '/design/$id/rooms': typeof DesignIdRoomsRoute
+  '/design/$id/validation': typeof DesignIdValidationRoute
+  '/design/$id/3d/generating': typeof DesignId3dGeneratingRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/dashboard': typeof DashboardRoute
+  '/login': typeof LoginRoute
+  '/projects': typeof ProjectsRoute
+  '/register': typeof RegisterRoute
+  '/design/new': typeof DesignNewRoute
+  '/design/$id/compare': typeof DesignIdCompareRoute
+  '/design/$id/edit': typeof DesignIdEditRoute
+  '/design/$id/final': typeof DesignIdFinalRoute
+  '/design/$id/generating': typeof DesignIdGeneratingRoute
+  '/design/$id/plans': typeof DesignIdPlansRoute
+  '/design/$id/preferences': typeof DesignIdPreferencesRoute
+  '/design/$id/rooms': typeof DesignIdRoomsRoute
+  '/design/$id/validation': typeof DesignIdValidationRoute
+  '/design/$id/3d/generating': typeof DesignId3dGeneratingRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/dashboard'
+    | '/login'
+    | '/projects'
+    | '/register'
+    | '/design/new'
+    | '/design/$id/compare'
+    | '/design/$id/edit'
+    | '/design/$id/final'
+    | '/design/$id/generating'
+    | '/design/$id/plans'
+    | '/design/$id/preferences'
+    | '/design/$id/rooms'
+    | '/design/$id/validation'
+    | '/design/$id/3d/generating'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/dashboard'
+    | '/login'
+    | '/projects'
+    | '/register'
+    | '/design/new'
+    | '/design/$id/compare'
+    | '/design/$id/edit'
+    | '/design/$id/final'
+    | '/design/$id/generating'
+    | '/design/$id/plans'
+    | '/design/$id/preferences'
+    | '/design/$id/rooms'
+    | '/design/$id/validation'
+    | '/design/$id/3d/generating'
+  id:
+    | '__root__'
+    | '/'
+    | '/dashboard'
+    | '/login'
+    | '/projects'
+    | '/register'
+    | '/design/new'
+    | '/design/$id/compare'
+    | '/design/$id/edit'
+    | '/design/$id/final'
+    | '/design/$id/generating'
+    | '/design/$id/plans'
+    | '/design/$id/preferences'
+    | '/design/$id/rooms'
+    | '/design/$id/validation'
+    | '/design/$id/3d/generating'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DashboardRoute: typeof DashboardRoute
+  LoginRoute: typeof LoginRoute
+  ProjectsRoute: typeof ProjectsRoute
+  RegisterRoute: typeof RegisterRoute
+  DesignNewRoute: typeof DesignNewRoute
+  DesignIdCompareRoute: typeof DesignIdCompareRoute
+  DesignIdEditRoute: typeof DesignIdEditRoute
+  DesignIdFinalRoute: typeof DesignIdFinalRoute
+  DesignIdGeneratingRoute: typeof DesignIdGeneratingRoute
+  DesignIdPlansRoute: typeof DesignIdPlansRoute
+  DesignIdPreferencesRoute: typeof DesignIdPreferencesRoute
+  DesignIdRoomsRoute: typeof DesignIdRoomsRoute
+  DesignIdValidationRoute: typeof DesignIdValidationRoute
+  DesignId3dGeneratingRoute: typeof DesignId3dGeneratingRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +234,123 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects': {
+      id: '/projects'
+      path: '/projects'
+      fullPath: '/projects'
+      preLoaderRoute: typeof ProjectsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/register': {
+      id: '/register'
+      path: '/register'
+      fullPath: '/register'
+      preLoaderRoute: typeof RegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/design/new': {
+      id: '/design/new'
+      path: '/design/new'
+      fullPath: '/design/new'
+      preLoaderRoute: typeof DesignNewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/design/$id/compare': {
+      id: '/design/$id/compare'
+      path: '/design/$id/compare'
+      fullPath: '/design/$id/compare'
+      preLoaderRoute: typeof DesignIdCompareRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/design/$id/edit': {
+      id: '/design/$id/edit'
+      path: '/design/$id/edit'
+      fullPath: '/design/$id/edit'
+      preLoaderRoute: typeof DesignIdEditRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/design/$id/final': {
+      id: '/design/$id/final'
+      path: '/design/$id/final'
+      fullPath: '/design/$id/final'
+      preLoaderRoute: typeof DesignIdFinalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/design/$id/generating': {
+      id: '/design/$id/generating'
+      path: '/design/$id/generating'
+      fullPath: '/design/$id/generating'
+      preLoaderRoute: typeof DesignIdGeneratingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/design/$id/plans': {
+      id: '/design/$id/plans'
+      path: '/design/$id/plans'
+      fullPath: '/design/$id/plans'
+      preLoaderRoute: typeof DesignIdPlansRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/design/$id/preferences': {
+      id: '/design/$id/preferences'
+      path: '/design/$id/preferences'
+      fullPath: '/design/$id/preferences'
+      preLoaderRoute: typeof DesignIdPreferencesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/design/$id/rooms': {
+      id: '/design/$id/rooms'
+      path: '/design/$id/rooms'
+      fullPath: '/design/$id/rooms'
+      preLoaderRoute: typeof DesignIdRoomsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/design/$id/validation': {
+      id: '/design/$id/validation'
+      path: '/design/$id/validation'
+      fullPath: '/design/$id/validation'
+      preLoaderRoute: typeof DesignIdValidationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/design/$id/3d/generating': {
+      id: '/design/$id/3d/generating'
+      path: '/design/$id/3d/generating'
+      fullPath: '/design/$id/3d/generating'
+      preLoaderRoute: typeof DesignId3dGeneratingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DashboardRoute: DashboardRoute,
+  LoginRoute: LoginRoute,
+  ProjectsRoute: ProjectsRoute,
+  RegisterRoute: RegisterRoute,
+  DesignNewRoute: DesignNewRoute,
+  DesignIdCompareRoute: DesignIdCompareRoute,
+  DesignIdEditRoute: DesignIdEditRoute,
+  DesignIdFinalRoute: DesignIdFinalRoute,
+  DesignIdGeneratingRoute: DesignIdGeneratingRoute,
+  DesignIdPlansRoute: DesignIdPlansRoute,
+  DesignIdPreferencesRoute: DesignIdPreferencesRoute,
+  DesignIdRoomsRoute: DesignIdRoomsRoute,
+  DesignIdValidationRoute: DesignIdValidationRoute,
+  DesignId3dGeneratingRoute: DesignId3dGeneratingRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
