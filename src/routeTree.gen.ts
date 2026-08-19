@@ -23,6 +23,7 @@ import { Route as DesignIdPlansRouteImport } from './routes/design/$id/plans'
 import { Route as DesignIdPreferencesRouteImport } from './routes/design/$id/preferences'
 import { Route as DesignIdRoomsRouteImport } from './routes/design/$id/rooms'
 import { Route as DesignIdValidationRouteImport } from './routes/design/$id/validation'
+import { Route as DesignId3dGeneratingRouteImport } from './routes/design/$id/3d/generating'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -94,6 +95,11 @@ const DesignIdValidationRoute = DesignIdValidationRouteImport.update({
   path: '/design/$id/validation',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DesignId3dGeneratingRoute = DesignId3dGeneratingRouteImport.update({
+  id: '/design/$id/3d/generating',
+  path: '/design/$id/3d/generating',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -110,6 +116,7 @@ export interface FileRoutesByFullPath {
   '/design/$id/preferences': typeof DesignIdPreferencesRoute
   '/design/$id/rooms': typeof DesignIdRoomsRoute
   '/design/$id/validation': typeof DesignIdValidationRoute
+  '/design/$id/3d/generating': typeof DesignId3dGeneratingRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -126,6 +133,7 @@ export interface FileRoutesByTo {
   '/design/$id/preferences': typeof DesignIdPreferencesRoute
   '/design/$id/rooms': typeof DesignIdRoomsRoute
   '/design/$id/validation': typeof DesignIdValidationRoute
+  '/design/$id/3d/generating': typeof DesignId3dGeneratingRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -143,6 +151,7 @@ export interface FileRoutesById {
   '/design/$id/preferences': typeof DesignIdPreferencesRoute
   '/design/$id/rooms': typeof DesignIdRoomsRoute
   '/design/$id/validation': typeof DesignIdValidationRoute
+  '/design/$id/3d/generating': typeof DesignId3dGeneratingRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -161,6 +170,7 @@ export interface FileRouteTypes {
     | '/design/$id/preferences'
     | '/design/$id/rooms'
     | '/design/$id/validation'
+    | '/design/$id/3d/generating'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -177,6 +187,7 @@ export interface FileRouteTypes {
     | '/design/$id/preferences'
     | '/design/$id/rooms'
     | '/design/$id/validation'
+    | '/design/$id/3d/generating'
   id:
     | '__root__'
     | '/'
@@ -193,6 +204,7 @@ export interface FileRouteTypes {
     | '/design/$id/preferences'
     | '/design/$id/rooms'
     | '/design/$id/validation'
+    | '/design/$id/3d/generating'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -210,6 +222,7 @@ export interface RootRouteChildren {
   DesignIdPreferencesRoute: typeof DesignIdPreferencesRoute
   DesignIdRoomsRoute: typeof DesignIdRoomsRoute
   DesignIdValidationRoute: typeof DesignIdValidationRoute
+  DesignId3dGeneratingRoute: typeof DesignId3dGeneratingRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -312,6 +325,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DesignIdValidationRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/design/$id/3d/generating': {
+      id: '/design/$id/3d/generating'
+      path: '/design/$id/3d/generating'
+      fullPath: '/design/$id/3d/generating'
+      preLoaderRoute: typeof DesignId3dGeneratingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -330,6 +350,7 @@ const rootRouteChildren: RootRouteChildren = {
   DesignIdPreferencesRoute: DesignIdPreferencesRoute,
   DesignIdRoomsRoute: DesignIdRoomsRoute,
   DesignIdValidationRoute: DesignIdValidationRoute,
+  DesignId3dGeneratingRoute: DesignId3dGeneratingRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
