@@ -14,6 +14,7 @@ import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as RegisterRouteImport } from './routes/register'
+import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as DesignNewRouteImport } from './routes/design/new'
 import { Route as DesignIdCompareRouteImport } from './routes/design/$id/compare'
 import { Route as DesignIdEditRouteImport } from './routes/design/$id/edit'
@@ -22,7 +23,10 @@ import { Route as DesignIdGeneratingRouteImport } from './routes/design/$id/gene
 import { Route as DesignIdPlansRouteImport } from './routes/design/$id/plans'
 import { Route as DesignIdPreferencesRouteImport } from './routes/design/$id/preferences'
 import { Route as DesignIdRoomsRouteImport } from './routes/design/$id/rooms'
+import { Route as DesignIdShareRouteImport } from './routes/design/$id/share'
 import { Route as DesignIdValidationRouteImport } from './routes/design/$id/validation'
+import { Route as DesignIdVrRouteImport } from './routes/design/$id/vr'
+import { Route as DesignId3dIndexRouteImport } from './routes/design/$id/3d/index'
 import { Route as DesignId3dGeneratingRouteImport } from './routes/design/$id/3d/generating'
 
 const IndexRoute = IndexRouteImport.update({
@@ -48,6 +52,11 @@ const ProjectsRoute = ProjectsRouteImport.update({
 const RegisterRoute = RegisterRouteImport.update({
   id: '/register',
   path: '/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DesignNewRoute = DesignNewRouteImport.update({
@@ -90,9 +99,24 @@ const DesignIdRoomsRoute = DesignIdRoomsRouteImport.update({
   path: '/design/$id/rooms',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DesignIdShareRoute = DesignIdShareRouteImport.update({
+  id: '/design/$id/share',
+  path: '/design/$id/share',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DesignIdValidationRoute = DesignIdValidationRouteImport.update({
   id: '/design/$id/validation',
   path: '/design/$id/validation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DesignIdVrRoute = DesignIdVrRouteImport.update({
+  id: '/design/$id/vr',
+  path: '/design/$id/vr',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DesignId3dIndexRoute = DesignId3dIndexRouteImport.update({
+  id: '/design/$id/3d/',
+  path: '/design/$id/3d/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DesignId3dGeneratingRoute = DesignId3dGeneratingRouteImport.update({
@@ -107,6 +131,7 @@ export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/projects': typeof ProjectsRoute
   '/register': typeof RegisterRoute
+  '/settings': typeof SettingsRoute
   '/design/new': typeof DesignNewRoute
   '/design/$id/compare': typeof DesignIdCompareRoute
   '/design/$id/edit': typeof DesignIdEditRoute
@@ -115,8 +140,11 @@ export interface FileRoutesByFullPath {
   '/design/$id/plans': typeof DesignIdPlansRoute
   '/design/$id/preferences': typeof DesignIdPreferencesRoute
   '/design/$id/rooms': typeof DesignIdRoomsRoute
+  '/design/$id/share': typeof DesignIdShareRoute
   '/design/$id/validation': typeof DesignIdValidationRoute
+  '/design/$id/vr': typeof DesignIdVrRoute
   '/design/$id/3d/generating': typeof DesignId3dGeneratingRoute
+  '/design/$id/3d/': typeof DesignId3dIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -124,6 +152,7 @@ export interface FileRoutesByTo {
   '/login': typeof LoginRoute
   '/projects': typeof ProjectsRoute
   '/register': typeof RegisterRoute
+  '/settings': typeof SettingsRoute
   '/design/new': typeof DesignNewRoute
   '/design/$id/compare': typeof DesignIdCompareRoute
   '/design/$id/edit': typeof DesignIdEditRoute
@@ -132,8 +161,11 @@ export interface FileRoutesByTo {
   '/design/$id/plans': typeof DesignIdPlansRoute
   '/design/$id/preferences': typeof DesignIdPreferencesRoute
   '/design/$id/rooms': typeof DesignIdRoomsRoute
+  '/design/$id/share': typeof DesignIdShareRoute
   '/design/$id/validation': typeof DesignIdValidationRoute
+  '/design/$id/vr': typeof DesignIdVrRoute
   '/design/$id/3d/generating': typeof DesignId3dGeneratingRoute
+  '/design/$id/3d': typeof DesignId3dIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -142,6 +174,7 @@ export interface FileRoutesById {
   '/login': typeof LoginRoute
   '/projects': typeof ProjectsRoute
   '/register': typeof RegisterRoute
+  '/settings': typeof SettingsRoute
   '/design/new': typeof DesignNewRoute
   '/design/$id/compare': typeof DesignIdCompareRoute
   '/design/$id/edit': typeof DesignIdEditRoute
@@ -150,8 +183,11 @@ export interface FileRoutesById {
   '/design/$id/plans': typeof DesignIdPlansRoute
   '/design/$id/preferences': typeof DesignIdPreferencesRoute
   '/design/$id/rooms': typeof DesignIdRoomsRoute
+  '/design/$id/share': typeof DesignIdShareRoute
   '/design/$id/validation': typeof DesignIdValidationRoute
+  '/design/$id/vr': typeof DesignIdVrRoute
   '/design/$id/3d/generating': typeof DesignId3dGeneratingRoute
+  '/design/$id/3d/': typeof DesignId3dIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -161,6 +197,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/projects'
     | '/register'
+    | '/settings'
     | '/design/new'
     | '/design/$id/compare'
     | '/design/$id/edit'
@@ -169,8 +206,11 @@ export interface FileRouteTypes {
     | '/design/$id/plans'
     | '/design/$id/preferences'
     | '/design/$id/rooms'
+    | '/design/$id/share'
     | '/design/$id/validation'
+    | '/design/$id/vr'
     | '/design/$id/3d/generating'
+    | '/design/$id/3d/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -178,6 +218,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/projects'
     | '/register'
+    | '/settings'
     | '/design/new'
     | '/design/$id/compare'
     | '/design/$id/edit'
@@ -186,8 +227,11 @@ export interface FileRouteTypes {
     | '/design/$id/plans'
     | '/design/$id/preferences'
     | '/design/$id/rooms'
+    | '/design/$id/share'
     | '/design/$id/validation'
+    | '/design/$id/vr'
     | '/design/$id/3d/generating'
+    | '/design/$id/3d'
   id:
     | '__root__'
     | '/'
@@ -195,6 +239,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/projects'
     | '/register'
+    | '/settings'
     | '/design/new'
     | '/design/$id/compare'
     | '/design/$id/edit'
@@ -203,8 +248,11 @@ export interface FileRouteTypes {
     | '/design/$id/plans'
     | '/design/$id/preferences'
     | '/design/$id/rooms'
+    | '/design/$id/share'
     | '/design/$id/validation'
+    | '/design/$id/vr'
     | '/design/$id/3d/generating'
+    | '/design/$id/3d/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -213,6 +261,7 @@ export interface RootRouteChildren {
   LoginRoute: typeof LoginRoute
   ProjectsRoute: typeof ProjectsRoute
   RegisterRoute: typeof RegisterRoute
+  SettingsRoute: typeof SettingsRoute
   DesignNewRoute: typeof DesignNewRoute
   DesignIdCompareRoute: typeof DesignIdCompareRoute
   DesignIdEditRoute: typeof DesignIdEditRoute
@@ -221,8 +270,11 @@ export interface RootRouteChildren {
   DesignIdPlansRoute: typeof DesignIdPlansRoute
   DesignIdPreferencesRoute: typeof DesignIdPreferencesRoute
   DesignIdRoomsRoute: typeof DesignIdRoomsRoute
+  DesignIdShareRoute: typeof DesignIdShareRoute
   DesignIdValidationRoute: typeof DesignIdValidationRoute
+  DesignIdVrRoute: typeof DesignIdVrRoute
   DesignId3dGeneratingRoute: typeof DesignId3dGeneratingRoute
+  DesignId3dIndexRoute: typeof DesignId3dIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -260,6 +312,13 @@ declare module '@tanstack/react-router' {
       path: '/register'
       fullPath: '/register'
       preLoaderRoute: typeof RegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/design/new': {
@@ -318,11 +377,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DesignIdRoomsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/design/$id/share': {
+      id: '/design/$id/share'
+      path: '/design/$id/share'
+      fullPath: '/design/$id/share'
+      preLoaderRoute: typeof DesignIdShareRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/design/$id/validation': {
       id: '/design/$id/validation'
       path: '/design/$id/validation'
       fullPath: '/design/$id/validation'
       preLoaderRoute: typeof DesignIdValidationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/design/$id/vr': {
+      id: '/design/$id/vr'
+      path: '/design/$id/vr'
+      fullPath: '/design/$id/vr'
+      preLoaderRoute: typeof DesignIdVrRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/design/$id/3d/': {
+      id: '/design/$id/3d/'
+      path: '/design/$id/3d'
+      fullPath: '/design/$id/3d/'
+      preLoaderRoute: typeof DesignId3dIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/design/$id/3d/generating': {
@@ -341,6 +421,7 @@ const rootRouteChildren: RootRouteChildren = {
   LoginRoute: LoginRoute,
   ProjectsRoute: ProjectsRoute,
   RegisterRoute: RegisterRoute,
+  SettingsRoute: SettingsRoute,
   DesignNewRoute: DesignNewRoute,
   DesignIdCompareRoute: DesignIdCompareRoute,
   DesignIdEditRoute: DesignIdEditRoute,
@@ -349,8 +430,11 @@ const rootRouteChildren: RootRouteChildren = {
   DesignIdPlansRoute: DesignIdPlansRoute,
   DesignIdPreferencesRoute: DesignIdPreferencesRoute,
   DesignIdRoomsRoute: DesignIdRoomsRoute,
+  DesignIdShareRoute: DesignIdShareRoute,
   DesignIdValidationRoute: DesignIdValidationRoute,
+  DesignIdVrRoute: DesignIdVrRoute,
   DesignId3dGeneratingRoute: DesignId3dGeneratingRoute,
+  DesignId3dIndexRoute: DesignId3dIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
