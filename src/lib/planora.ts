@@ -305,3 +305,7 @@ export const STATUS_STYLES: Record<ProjectStatus, string> = {
   Validated: "border-success/40 text-success",
   "3D Ready": "border-primary/50 text-primary",
 };
+
+export function clearProjects() {
+  saveProjects([]);
+}

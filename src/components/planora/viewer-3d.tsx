@@ -1,5 +1,5 @@
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Grid, Environment } from "@react-three/drei";
+import { OrbitControls, Environment } from "@react-three/drei";
 import { useMemo } from "react";
 import * as THREE from "three";
 import type { Plan, Project } from "@/lib/planora";
@@ -25,13 +25,13 @@ export default function Viewer3D({
       dpr={[1, 1.6]}
       camera={{
         position:
-          mode === "walk" ? [cx, 5.5, cz + span * 0.15] : [cx + span * 0.8, span * 0.75, cz + span * 0.9],
+          mode === "walk" ? [0, 5.5, span * 0.1] : [span * 0.55, span * 0.5, span * 0.8],
         fov: mode === "walk" ? 70 : 45,
       }}
     >
       <color attach="background" args={["#050A10"]} />
-      <fog attach="fog" args={["#050A10", span * 1.2, span * 3]} />
-      <ambientLight intensity={0.45} />
+      <fog attach="fog" args={["#050A10", span * 1.8, span * 4]} />
+      <ambientLight intensity={0.7} />
       <directionalLight
         position={[span, span * 1.4, span * 0.6]}
         intensity={1.2}
@@ -49,20 +49,15 @@ export default function Viewer3D({
         ))}
       </group>
 
-      <Grid
-        position={[0, -0.02, 0]}
-        args={[span * 3, span * 3]}
-        cellSize={2}
-        cellColor="#1B2A38"
-        sectionSize={10}
-        sectionColor="#1597E5"
-        fadeDistance={span * 2.4}
-        infiniteGrid
+      <gridHelper
+        position={[0, -0.4, 0]}
+        args={[span * 3, Math.round((span * 3) / 5), "#1597E5", "#1B2A38"]}
       />
+
 
       <OrbitControls
         makeDefault
-        target={[0, 1.5, 0]}
+        target={[0, 1.2, 0]}
         enableRotate={mode === "orbit" || mode === "walk"}
         enablePan={mode === "pan" || mode === "orbit"}
         enableZoom={mode === "zoom" || mode === "orbit"}
@@ -73,7 +68,7 @@ export default function Viewer3D({
 }
 
 function RoomVolume({ x, z, w, d }: { x: number; z: number; w: number; d: number }) {
-  const h = 3;
+  const h = 3.2;
   const t = 0.28;
   const walls = useMemo(
     () => [
@@ -94,7 +89,7 @@ function RoomVolume({ x, z, w, d }: { x: number; z: number; w: number; d: number
       {walls.map((wall, i) => (
         <mesh key={i} position={wall.p as unknown as THREE.Vector3Tuple} castShadow receiveShadow>
           <boxGeometry args={wall.s as unknown as [number, number, number]} />
-          <meshStandardMaterial color="#16222E" roughness={0.6} metalness={0.05} />
+          <meshStandardMaterial color="#2C3B4B" roughness={0.55} metalness={0.05} />
         </mesh>
       ))}
     </group>
